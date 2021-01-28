@@ -1,6 +1,8 @@
 # ⚡ Save Flash ⚡
-Save Flash is an Electron App that permit to include your Web Flash Application in an Electron container and run it as Desktop App.
+
 ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/q7zuq46hizvh2hdyxwls.png)
+
+Save Flash is an Electron App that permit to include your Web Flash Application in an Electron container and run it as Desktop App.
 
 ## How to use?
 - Clone this repo
