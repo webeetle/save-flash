@@ -1,4 +1,4 @@
-# save-flash
+# ⚡ Save Flash ⚡
 Save Flash is an Electron App that permit to include your Web Flash Application in an Electron container and run it as Desktop App.
 
 ## How to use?
@@ -17,7 +17,7 @@ Save Flash is an Electron App that permit to include your Web Flash Application 
 | npm run make-win |  build for windows |   
 
 ## Develop
-Clone the repo then use npm install for download all the dependencies then launch npm start for launch the project in dev mode
+Clone the repo then use npm install for download all the dependencies then launch `npm start` for launch the project in dev mode
 
 ## Pull Requests?
 We love them!
