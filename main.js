@@ -25,7 +25,7 @@ app.on('ready', function() {
   mainWindow = new BrowserWindow({
     'webPreferences': {
       'plugins': true,
-      'nodeIntegration': true
+      'nodeIntegration': false
     }, 
   })
   mainWindow.maximize()
