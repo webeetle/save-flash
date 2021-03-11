@@ -25,9 +25,14 @@ app.on('ready', function() {
   mainWindow = new BrowserWindow({
     'webPreferences': {
       'plugins': true,
-      'nodeIntegration': true
+      'nodeIntegration': false
     }, 
   })
   mainWindow.maximize()
-  mainWindow.loadURL(config.url)
+  // Preload Url from Config File
+  // mainWindow.loadURL(config.url)
+  // Open Dev Tools
+  // mainWindow.webContents.openDevTools();
+  // Goes to local page
+  mainWindow.loadURL('file://' + __dirname + '/assets/index.html');
 })
