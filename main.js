@@ -37,7 +37,7 @@ app.on('ready', function() {
     mainWindow.loadURL(config.url)
   }
   // Open Dev Tools
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   mainWindow.webContents.session.webRequest.onHeadersReceived({ urls: [ "*://*/*" ] },
     (d, c)=>{
