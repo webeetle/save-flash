@@ -29,10 +29,25 @@ app.on('ready', function() {
     }, 
   })
   mainWindow.maximize()
-  // Preload Url from Config File
-  // mainWindow.loadURL(config.url)
+  if(config.url === '') {
+    // Goes to local page
+    mainWindow.loadURL('file://' + __dirname + '/assets/index.html');
+  } else {
+    // Preload Url from Config File
+    mainWindow.loadURL(config.url)
+  }
   // Open Dev Tools
   // mainWindow.webContents.openDevTools();
-  // Goes to local page
-  mainWindow.loadURL('file://' + __dirname + '/assets/index.html');
+
+  mainWindow.webContents.session.webRequest.onHeadersReceived({ urls: [ "*://*/*" ] },
+    (d, c)=>{
+      if(d.responseHeaders['X-Frame-Options']){
+        delete d.responseHeaders['X-Frame-Options'];
+      } else if(d.responseHeaders['x-frame-options']) {
+        delete d.responseHeaders['x-frame-options'];
+      }
+
+      c({cancel: false, responseHeaders: d.responseHeaders});
+    }
+  );
 })
