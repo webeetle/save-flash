@@ -17,21 +17,33 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					</ul>
-					<!-- <form class="d-flex">
-						<input class="form-control me-2" type="tesxt" placeholder="Url" aria-label="Url" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" title="A valid url is required. Protocol (http|https|ftp) needed!">
-						<button class="btn btn-outline-success" type="submit">Go</button>
-					</form> -->
+					<div class="d-flex">
+						<input id="url_input" class="form-control me-2" type="text" placeholder="Url" aria-label="Url" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" title="A valid url is required. Protocol (http|https|ftp) needed!">
+						<button class="btn btn-outline-success" onclick="setURL()">Go</button>
+					</div>
 				</div>
 			</div>
 		</nav>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12">
-				<iframe src="https://google.com/" id="url" style="height: 100vh; width: 100vw; overflow: none;" allowfullscreen frameborder="0" wmode="transparent">
+				<iframe src="https://google.com" id="url_iframe" style="height: 100vh; width: 100vw; overflow: none;" allowfullscreen frameborder="0" wmode="transparent">
 					Your browser doesn't support iframes
 				</iframe>
 			</div>
 		</div>
 
+		<script>
+			function setURL(url) {
+				let re = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
+				if(re.test(document.getElementById('url_input').value)) {
+					document.getElementById('url_iframe').setAttribute('src', document.getElementById('url_input').value);
+					document.getElementById('url_input').value = '';
+				} else {
+					alert('A valid url is required. Protocol (http|https|ftp) needed!')
+				}
+			}
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
   </body>
 </html>
