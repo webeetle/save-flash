@@ -8,7 +8,7 @@
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "make-mac": "npx @electron-forge/cli make --platform darwin",
+    "make-mac": "electron-forge make --platform darwin",
     "make-linux": "npx @electron-forge/cli make --platform linux",
     "make-win": "npx @electron-forge/cli make --platform win32"
   },
@@ -20,7 +20,7 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
-    "electron": "4.2.6"
+    "electron": "^13.0.0"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0"

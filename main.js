@@ -25,9 +25,12 @@ app.on('ready', function() {
   mainWindow = new BrowserWindow({
     'webPreferences': {
       'plugins': true,
-      'nodeIntegration': false
-    }, 
+      'nodeIntegration': false,
+      'allowRunningInsecureContent': true,
+      'contextIsolation': false
+    },
   })
+  mainWindow.openDevTools()
   mainWindow.maximize()
   if(config.url === '') {
     // Goes to local page
