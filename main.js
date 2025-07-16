@@ -1,4 +1,4 @@
-const {app, BrowserWindow, ipcMain} = require('electron')
+const {app, BrowserWindow, ipcMain, Menu} = require('electron')
 const path = require('path')
 const config = {
   url: 'http://amrubrica.comune.torino.it/'
@@ -66,16 +66,31 @@ app.on('ready', function() {
     'webPreferences': {
       'plugins': true,
       'nodeIntegration': true,
-      'contextIsolation': false
+      'contextIsolation': false,
+      'enableRemoteModule': true
     },
-    frame: false,
-    resizable: true,
-    width: 1200,
-    height: 800,
-    show: false
+    'frame': false,
+    'width': 1280,
+    'height': 720,
+    'resizable': true,
+    'autoHideMenuBar': true
   })
-  
-  // Maximize and show the window
+
+  // Create context menu
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: 'Developer Tools',
+      click: () => {
+        mainWindow.webContents.toggleDevTools()
+      }
+    }
+  ])
+
+  // Add context menu to main window
+  mainWindow.webContents.on('context-menu', (event, params) => {
+    contextMenu.popup(mainWindow)
+  })
+
   mainWindow.maximize()
   mainWindow.show()
   
